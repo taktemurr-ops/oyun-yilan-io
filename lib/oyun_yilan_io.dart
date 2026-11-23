@@ -5,7 +5,6 @@ import 'package:arcade_motoru/yilanio.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const yilanioId = 'oyun-yilan-io';
 
@@ -88,7 +87,7 @@ final yilanioConfig = GameConfig(
   rules: yilanioRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => yilanioRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => yilanioRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintSnakeIo(c, s, p, t);
